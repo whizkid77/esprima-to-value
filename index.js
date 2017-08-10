@@ -21,7 +21,7 @@ function toValue (tree) {
       case 'ObjectExpression':
         ret = {};
         for (let prop of tree.properties) {
-          ret[prop.key.name] = toValue(prop.value);
+          ret[prop.key.name || prop.key.value] = toValue(prop.value);
         }
         break;
     }
