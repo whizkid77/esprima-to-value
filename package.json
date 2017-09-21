@@ -21,5 +21,8 @@
   "homepage": "https://github.com/yorkie/esprima-to-value#readme",
   "dependencies": {
     "esprima-get-object": "^1.0.1"
+  },
+  "devDependencies": {
+    "esprima": "^4.0.0"
   }
 }

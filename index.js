@@ -24,6 +24,22 @@ function toValue (tree) {
           ret[prop.key.name || prop.key.value] = toValue(prop.value);
         }
         break;
+      case 'UnaryExpression':
+        if (tree.operator == '-') {
+          ret = -1 * toValue(tree.argument);
+        } else {
+          throw new Error('Unknown unary operator')
+        }
+        break;
+      case 'Program':
+        ret = toValue(tree.body);
+        break;
+      case 'ExpressionStatement':
+        ret = toValue(tree.expression);
+        break;
+      default:
+        throw new Error('Unsupported type: ' + tree.type);
+        break;
     }
     return ret;
   }
